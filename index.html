@@ -6,10 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+    <link rel='stylesheet prefetch' href='https://raw.githubusercontent.com/kartik-v/bootstrap-star-rating/master/css/star-rating.min.css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/modal.css">
 </head>
 
 <body>
@@ -20,20 +23,95 @@
             <p>bla bla bla</p>
         </div>
     </div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Write Your Review</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="review-form" action="review-cont.php" method="post">
+                        <div id="rating">
+                            <svg class="star" id="1" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" style="fill: #f39c12;">
+                                <polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
+                            </svg>
+                            <svg class="star" id="2" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" style="fill: #f39c12;">
+                                <polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
+                            </svg>
+                            <svg class="star" id="3" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" style="fill: #f39c12;">
+                                <polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
+                            </svg>
+                            <svg class="star" id="4" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" style="fill: #f39c12;">
+                                <polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
+                            </svg>
+                            <svg class="star" id="5" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" style="fill: #808080;">
+                                <polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
+                            </svg>
+                        </div>
+                        <span id="starsInfo" class="help-block">
+                            Click on a star to change your rating 1 - 5, where 5 = great! and 1 = really bad
+                        </span>
+                        <div class="form-group">
+                            <label class="control-label" for="review">Your Review:</label>
+                            <textarea class="form-control" rows="10" placeholder="Your Reivew" name="review" id="review"></textarea>
+                            <span id="reviewInfo" class="help-block pull-right">
+                                <span id="remaining">999</span> Characters remaining
+                            </span>
+                        </div>
+                        <h2>Your Info:</h2>
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input class="form-control" type="text" placeholder="Name" name="name" id="name" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City:</label>
+                            <input class="form-control" type="text" placeholder="City" name="city" id="city" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input class="form-control" type="text" placeholder="Email" name="email" id="email" value="">
+                        </div>
+                        <a href="review-cont.php" id="submit" class="btn btn-primary">Submit</a>
+                        <input id="submitForm" type="submit" style="display:none;">
+                        <span id="submitInfo" class="help-block">
+                            By clicking
+                            <strong>Submit</strong>, I authorize the sharing of my name and review on the web. (email will not be shared)
+                        </span>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
         <div class="row top-buffer">
             <div class="col-sm-3 images">
                 <img src="https://www.w3schools.com/bootstrap4/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre">
             </div>
-            <div class="col-sm-4"  style="background:blue;">  
-                <h3>Column 2</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+            <div class="col-sm-5"  style="background:rgb(91, 139, 194);">  
+                <h3>Project 1</h3>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <footer>
+                    <h4>Ratings</h4>
+                    <div class="star-rating">
+                        <span class="fa fa-star-o" data-rating="1"></span>
+                        <span class="fa fa-star-o" data-rating="2"></span>
+                        <span class="fa fa-star-o" data-rating="3"></span>
+                        <span class="fa fa-star-o" data-rating="4"></span>
+                        <span class="fa fa-star-o" data-rating="5"></span>
+                        <input type="hidden" name="whatever1" class="rating-value" value="2.56">
+                        <button type="button" class="btn btn-info btn-xs ratebtn" data-toggle="modal" data-target="#myModal">Rate</button>
+                    </div>
+                    
+                </footer>
             </div>
-            <div class="col-sm-5" style="background:green;">
-                <h3>Column 3</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+            <div class="col-sm-4" style="background:rgb(94, 177, 94);">
+                <h3>Reviews</h3>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
             </div>
         </div>
@@ -41,19 +119,30 @@
             <div class="col-sm-3 images">
                 <img src="https://www.w3schools.com/bootstrap4/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre">
             </div>
-            <div class="col-sm-4" style="background:blue;">
-                <h3>Column 2</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+            <div class="col-sm-5" style="background:rgb(91, 139, 194);">
+                <h3>Project 2</h3>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <footer>
+                    <h4>Ratings</h4>
+                    <div class="star-rating">
+                        <span class="fa fa-star-o" data-rating="1"></span>
+                        <span class="fa fa-star-o" data-rating="2"></span>
+                        <span class="fa fa-star-o" data-rating="3"></span>
+                        <span class="fa fa-star-o" data-rating="4"></span>
+                        <span class="fa fa-star-o" data-rating="5"></span>
+                        <input type="hidden" name="whatever1" class="rating-value" value="2.56">
+                        <button type="button" class="btn btn-info btn-xs ratebtn" data-toggle="modal" data-target="#myModal">Rate</button>
+                    </div>
+                </footer>
             </div>
-            <div class="col-sm-5" style="background:green;">
-                <h3>Column 3</h3>
+            <div class="col-sm-4" style="background:rgb(94, 177, 94);">
+                <h3>Reviews</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
             </div>
         </div>
     </div>
-
+    <script src="js/modal.js"></script>
 </body>
 
 </html>
