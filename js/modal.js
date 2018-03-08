@@ -71,7 +71,7 @@ form.addEventListener('submit', function (e) {
     stars: state.starsSet,
     review: form['review'].value,
     name: form['name'].value,
-    city: form['city'].value,
+    college: form['college'].value,
     email: form['email'].value
   };
   $.ajax({
@@ -79,8 +79,10 @@ form.addEventListener('submit', function (e) {
     type: "POST",
     url: "./review-cont.php",
     success: function (data) {
-      console.log('reseting');
+      console.log(data);
       document.getElementById('review-form').reset();
+      document.getElementById('modal_close').click();
+
     }
   });
 
@@ -91,7 +93,12 @@ form.addEventListener('submit', function (e) {
 document.getElementById('submit').addEventListener('click', function (e) {
   e.preventDefault();
   document.getElementById('submitForm').click();
-});
+}); 
+$('.ratebtn').click(function(data) {
+  var prjvalue = this.value; 
+  console.log(this.value);
+  document.cookie = "prjvalue=" + prjvalue;
+})
 
 // var reviews = {
 //   reviews: [{

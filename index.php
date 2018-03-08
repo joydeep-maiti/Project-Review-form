@@ -1,3 +1,6 @@
+<?php   
+    include('conn.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,12 +8,18 @@
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
     <link rel='stylesheet prefetch' href='https://raw.githubusercontent.com/kartik-v/bootstrap-star-rating/master/css/star-rating.min.css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel='stylesheet prefetch' href='css/font-awesome.min.css'>
+    <link rel='stylesheet prefetch' href='css/star-rating.min.css'>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/modal.css">
 </head>
@@ -19,7 +28,7 @@
 
     <div class="jumbotron text-center bgi">
         <div class="page-header header-fixed" >
-            <h1>BGI Technitiate - 2k18 </h1>
+            <h1>BGI Technitiate - 2018 </h1>
             <p>bla bla bla</p>
         </div>
     </div>
@@ -66,12 +75,12 @@
                             <input class="form-control" type="text" placeholder="Name" name="name" id="name" value="">
                         </div>
                         <div class="form-group">
-                            <label for="city">City:</label>
-                            <input class="form-control" type="text" placeholder="City" name="city" id="city" value="">
+                            <label for="College">College:</label>
+                            <input class="form-control" type="text" placeholder="College" name="College" id="college" value="">
                         </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input class="form-control" type="text" placeholder="Email" name="email" id="email" value="">
+                            <input class="form-control" type="email" placeholder="Email" name="email" id="email" value="">
                         </div>
                         <a href="review-cont.php" id="submit" class="btn btn-primary">Submit</a>
                         <input id="submitForm" type="submit" style="display:none;">
@@ -82,14 +91,14 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" id='modal_close' class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="container">
-        <div class="row top-buffer">
+        <div class="row mytop-buffer">
             <div class="col-sm-3 images">
                 <img src="https://www.w3schools.com/bootstrap4/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre">
             </div>
@@ -105,17 +114,30 @@
                         <span class="fa fa-star-o" data-rating="4"></span>
                         <span class="fa fa-star-o" data-rating="5"></span>
                         <input type="hidden" name="whatever1" class="rating-value" value="2.56">
-                        <button type="button" class="btn btn-info btn-xs ratebtn" data-toggle="modal" data-target="#myModal">Rate</button>
+                        <button type="button" value='1' class="btn btn-info btn-xs ratebtn" data-toggle="modal" data-target="#myModal">Rate</button>
                     </div>
                     
                 </footer>
             </div>
             <div class="col-sm-4" style="background:rgb(94, 177, 94);">
                 <h3>Reviews</h3>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <!-- <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p> -->
+                <?php
+                    $sel = "SELECT * FROM rating WHERE project= 1";
+                    $res = $con->query($sel);
+                    while($row = $res->fetch_assoc())
+                    {
+
+                ?>
+                    <!-- <div class="people" data-transition="slide" style="cursor: pointer;"> -->
+                        <p><?php echo $row['review'] ?></p>
+                    <!-- </div> -->
+                <?php
+                    }
+                ?>
             </div>
         </div>
-        <div class="row top-buffer">
+        <div class="row mytop-buffer">
             <div class="col-sm-3 images">
                 <img src="https://www.w3schools.com/bootstrap4/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre">
             </div>
@@ -131,7 +153,7 @@
                         <span class="fa fa-star-o" data-rating="4"></span>
                         <span class="fa fa-star-o" data-rating="5"></span>
                         <input type="hidden" name="whatever1" class="rating-value" value="2.56">
-                        <button type="button" class="btn btn-info btn-xs ratebtn" data-toggle="modal" data-target="#myModal">Rate</button>
+                        <button type="button" value='2' class="btn btn-info btn-xs ratebtn" data-toggle="modal" data-target="#myModal">Rate</button>
                     </div>
                 </footer>
             </div>
