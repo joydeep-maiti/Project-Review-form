@@ -1,0 +1,13 @@
+.images {
+    width: 10px;
+    height: auto;
+}
+
+.top-buffer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.bgi {
+    height: 150px;
+    padding-block-start: 30px;
+}
