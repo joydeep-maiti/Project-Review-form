@@ -98,7 +98,7 @@
     <div class="container">
         <div class="row top-buffer">
             <div class="col-sm-3 images">
-                <img src="https://www.w3schools.com/bootstrap4/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre">
+                <img src="images/prj1.jpg" class="img-thumbnail" alt="Cinque Terre">
             </div>
             <div class="col-sm-5"  style="background:rgb(91, 139, 194);">  
                 <h3>Project 1</h3>
@@ -130,52 +130,15 @@
                 </footer>
             </div>
             <div class="col-sm-4" style="background:rgb(94, 177, 94);">
-                <!-- <h3>Reviews</h3> -->
-                <!-- <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p> -->
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                        <img class="d-block w-100" src="https://www.w3schools.com/bootstrap/la.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                        <img class="d-block w-100" src="https://www.w3schools.com/bootstrap/la.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                        <img class="d-block w-100" src="https://www.w3schools.com/bootstrap/la.jpg" alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-                <?php
-                    $sel = "SELECT * FROM rating WHERE project= 1";
-                    $res = $con->query($sel);
-                    while($row = $res->fetch_assoc())
-                    {
-
-                ?>
-                    <!-- <div class="people" data-transition="slide" style="cursor: pointer;"> -->
-                        <!-- <p><?php echo $row['review'] ?></p> -->
-                    <!-- </div> -->
-                <?php
-                    };
-                ?>
+                <h3>Reviews</h3>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
             </div>
+            
         </div>
+       
         <div class="row top-buffer">
             <div class="col-sm-3 images">
-                <img src="https://www.w3schools.com/bootstrap4/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre">
+                <img src="images/prj2.jpg" class="img-thumbnail" alt="Cinque Terre">
             </div>
             <div class="col-sm-5" style="background:rgb(91, 139, 194);">
                 <h3>Project 2</h3>
@@ -207,8 +170,9 @@
             </div>
             <div class="col-sm-4" style="background:rgb(94, 177, 94);">
                 <h3>Reviews</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p> -->
+                <div id="review-container">
             </div>
         </div>
     </div>
