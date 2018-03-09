@@ -8,20 +8,21 @@
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
     <link rel='stylesheet prefetch' href='https://raw.githubusercontent.com/kartik-v/bootstrap-star-rating/master/css/star-rating.min.css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel='stylesheet prefetch' href='css/font-awesome.min.css'>
     <link rel='stylesheet prefetch' href='css/star-rating.min.css'>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <script src="js/bootstrap.min.js"></script> -->
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/style.css">
+    
 </head>
 
 <body>
@@ -34,8 +35,6 @@
     </div>
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
-    
-            <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Write Your Review</h4>
@@ -64,22 +63,22 @@
                         </span>
                         <div class="form-group">
                             <label class="control-label" for="review">Your Review:</label>
-                            <textarea class="form-control" rows="10" placeholder="Your Reivew" name="review" id="review"></textarea>
+                            <textarea class="form-control" rows="2" placeholder="Your Reivew" name="review" id="review"></textarea>
                             <span id="reviewInfo" class="help-block pull-right">
                                 <span id="remaining">999</span> Characters remaining
                             </span>
                         </div>
                         <h2>Your Info:</h2>
                         <div class="form-group">
-                            <label for="name">Name:</label>
+                            <!-- <label for="name">Name:</label> -->
                             <input class="form-control" type="text" placeholder="Name" name="name" id="name" value="">
                         </div>
                         <div class="form-group">
-                            <label for="College">College:</label>
+                            <!-- <label for="College">College:</label> -->
                             <input class="form-control" type="text" placeholder="College" name="College" id="college" value="">
                         </div>
                         <div class="form-group">
-                            <label for="email">Email:</label>
+                            <!-- <label for="email">Email:</label> -->
                             <input class="form-control" type="email" placeholder="Email" name="email" id="email" value="">
                         </div>
                         <a href="review-cont.php" id="submit" class="btn btn-primary">Submit</a>
@@ -96,32 +95,69 @@
             </div>
         </div>
     </div>
-
     <div class="container">
-        <div class="row mytop-buffer">
+        <div class="row top-buffer">
             <div class="col-sm-3 images">
                 <img src="https://www.w3schools.com/bootstrap4/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre">
             </div>
             <div class="col-sm-5"  style="background:rgb(91, 139, 194);">  
                 <h3>Project 1</h3>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <?php
+                    $sel = "SELECT * FROM rating WHERE project= 1";
+                    $count = 0;
+                    $ratings = 0;
+                    $res = $con->query($sel);
+                    while($row = $res->fetch_assoc())
+                    {
+                        $ratings+= $row['stars'];
+                        $count++;
+                    }
+                    $avg_rating = $ratings/$count + 0.5;
+                ?>
                 <footer>
                     <h4>Ratings</h4>
-                    <div class="star-rating">
+                    <div class="star-rating prj1">
                         <span class="fa fa-star-o" data-rating="1"></span>
                         <span class="fa fa-star-o" data-rating="2"></span>
                         <span class="fa fa-star-o" data-rating="3"></span>
                         <span class="fa fa-star-o" data-rating="4"></span>
                         <span class="fa fa-star-o" data-rating="5"></span>
-                        <input type="hidden" name="whatever1" class="rating-value" value="2.56">
+                        <input type="hidden" name="whatever1" class="rating-value1" value="<?php echo $avg_rating ?>">
                         <button type="button" value='1' class="btn btn-info btn-xs ratebtn" data-toggle="modal" data-target="#myModal">Rate</button>
                     </div>
                     
                 </footer>
             </div>
             <div class="col-sm-4" style="background:rgb(94, 177, 94);">
-                <h3>Reviews</h3>
+                <!-- <h3>Reviews</h3> -->
                 <!-- <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p> -->
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <img class="d-block w-100" src="https://www.w3schools.com/bootstrap/la.jpg" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                        <img class="d-block w-100" src="https://www.w3schools.com/bootstrap/la.jpg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                        <img class="d-block w-100" src="https://www.w3schools.com/bootstrap/la.jpg" alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
                 <?php
                     $sel = "SELECT * FROM rating WHERE project= 1";
                     $res = $con->query($sel);
@@ -130,29 +166,41 @@
 
                 ?>
                     <!-- <div class="people" data-transition="slide" style="cursor: pointer;"> -->
-                        <p><?php echo $row['review'] ?></p>
+                        <!-- <p><?php echo $row['review'] ?></p> -->
                     <!-- </div> -->
                 <?php
-                    }
+                    };
                 ?>
             </div>
         </div>
-        <div class="row mytop-buffer">
+        <div class="row top-buffer">
             <div class="col-sm-3 images">
                 <img src="https://www.w3schools.com/bootstrap4/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre">
             </div>
             <div class="col-sm-5" style="background:rgb(91, 139, 194);">
                 <h3>Project 2</h3>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <?php
+                    $sel = "SELECT * FROM rating WHERE project= 2";
+                    $count = 0;
+                    $ratings = 0;
+                    $res = $con->query($sel);
+                    while($row = $res->fetch_assoc())
+                    {
+                        $ratings+= $row['stars'];
+                        $count++;
+                    }
+                    $avg_rating = $ratings/$count + 0.5;
+                ?>
                 <footer>
                     <h4>Ratings</h4>
-                    <div class="star-rating">
+                    <div class="star-rating prj2">
                         <span class="fa fa-star-o" data-rating="1"></span>
                         <span class="fa fa-star-o" data-rating="2"></span>
                         <span class="fa fa-star-o" data-rating="3"></span>
                         <span class="fa fa-star-o" data-rating="4"></span>
                         <span class="fa fa-star-o" data-rating="5"></span>
-                        <input type="hidden" name="whatever1" class="rating-value" value="2.56">
+                        <input type="hidden" name="whatever1" class="rating-value2" value="<?php echo $avg_rating ?>">
                         <button type="button" value='2' class="btn btn-info btn-xs ratebtn" data-toggle="modal" data-target="#myModal">Rate</button>
                     </div>
                 </footer>
@@ -165,6 +213,8 @@
         </div>
     </div>
     <script src="js/modal.js"></script>
+    <script src="js/index.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 </body>
 
 </html>

@@ -8,12 +8,10 @@
     height: auto;
 }
 
-.mytop-buffer {
+.top-buffer {
     margin-top: 20px;
     margin-bottom: 20px;
-    height: 500px;
-    max-height: 200px;
-    
+    height: 200px;
 }
 
 .star-rating {
@@ -30,4 +28,3 @@
     padding: 0%;
     float: right;
 }
-
